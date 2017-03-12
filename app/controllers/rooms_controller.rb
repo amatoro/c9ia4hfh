@@ -16,6 +16,11 @@ class RoomsController < ApplicationController
     end
   end
 
+  def destroy
+    @room = Room.delete(params[:id]) 
+    redirect_to rooms_path
+  end
+  
   def edit
     @room = Room.find(params[:id])
   end
@@ -26,8 +31,7 @@ class RoomsController < ApplicationController
       redirect_to rooms_path
     else
       render :edit
-    end
-    
+    end  
   end
 
   protected
